@@ -7,6 +7,7 @@ killall cubesql 2&>/dev/null
 INSTALL_DIR=/opt/cubesql/
 rm -fR $INSTALL_DIR &>/dev/null
 rm -f "/usr/local/bin/cubesqlctl" &>/dev/null
+rm -f "/usr/local/etc/rc.d/cubesql" &>/dev/null
 
 # remove startup script
 #update-rc.d -f cubesql remove
