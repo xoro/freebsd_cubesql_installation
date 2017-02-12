@@ -10,7 +10,7 @@ status_cmd="${name}_status"
 
 cubesql_start()
 {
-	/usr/local/cubesql/cubesql &
+	/opt/cubesql/cubesql &
 }
 
 cubesql_stop()
@@ -20,7 +20,7 @@ cubesql_stop()
 
 cubesql_restart()
 {
-  /usr/local/cubesql/cubesql &
+  /opt/cubesql/cubesql &
 	killall cubesql
 }
 
