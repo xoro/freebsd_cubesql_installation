@@ -1,32 +1,32 @@
 #!/bin/sh
 
+# PROVIDE: cubesql
+# REQUIRE: DAEMON linux
+# BEFORE:  LOGIN
+# KEYWORD: nojail shutdown
+
 . /etc/rc.subr
 
 name="cubesql"
+command="/usr/local/bin/cubesqlctl"
+
 start_cmd="${name}_start"
 stop_cmd="${name}_stop"
 restart_cmd="${name}_restart"
-status_cmd="${name}_status"
 
 cubesql_start()
 {
-	/opt/cubesql/cubesql &
+  ${command} start
 }
 
 cubesql_stop()
 {
-	killall cubesql
+  ${command} stop
 }
 
 cubesql_restart()
 {
-  /opt/cubesql/cubesql &
-	killall cubesql
-}
-
-cubesql_status()
-{
-  ps aux | grep cubesql
+  ${command} restart
 }
 
 load_rc_config $name
