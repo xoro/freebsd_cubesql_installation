@@ -1,0 +1,33 @@
+#!/bin/sh
+
+. /etc/rc.subr
+
+name="cubesql"
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+restart_cmd="${name}_restart"
+status_cmd="${name}_status"
+
+cubesql_start()
+{
+	/usr/local/cubesql/cubesql &
+}
+
+cubesql_stop()
+{
+	killall cubesql
+}
+
+cubesql_restart()
+{
+  /usr/local/cubesql/cubesql &
+	killall cubesql
+}
+
+cubesql_status()
+{
+  ps aux | grep cubesql
+}
+
+load_rc_config $name
+run_rc_command "$1"
