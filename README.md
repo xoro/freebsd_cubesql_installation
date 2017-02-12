@@ -29,7 +29,7 @@
 ```
 
 
-# Installing cubeSQL 32bit on FreeBSD 64bit, CentOS6
+# Installing cubeSQL 32bit on FreeBSD 11.0 64bit, CentOS6
 
 ```
 # pkg update
@@ -48,7 +48,7 @@
 ```
 
 
-# Installing cubeSQL 64bit on FreeBSD 64bit, CentOS6
+# Installing cubeSQL 64bit on FreeBSD 11.0 64bit, CentOS6
 
 ```
 # pkg update
