@@ -64,8 +64,11 @@
 # fetch http://www.sqlabs.com/download/cubesql/561/cubesql_linux64bit.tgz
 # tar xzf cubesql_linux64bit.tgz
 # cd cubesql
-# fetch https://raw.githubusercontent.com/xoro/freebsd_cubesql_installation/master/install_freebsd.sh
-# cp ../install_freebsd.sh .
+# fetch --no-verify-peer https://raw.githubusercontent.com/xoro/freebsd_cubesql_installation/master/install_freebsd.sh
+# chmod a+x install_freebsd.sh
 # ./install_freebsd.sh
+# fetch --no-verify-peer -o /usr/local/etc/rc.d/cubesql https://raw.githubusercontent.com/xoro/freebsd_cubesql_installation/master/install_freebsd.sh
+# chmod a+x /usr/local/etc/rc.d/cubesql
+# echo 'cubesql_enable="YES"' >> /etc/rc.conf
 # service cubesql start
 ```

@@ -1,8 +1,10 @@
 #!/bin/sh
-INSTALL_DIR=/usr/local/cubesql
 
-#remove old installation folder (if exists)
+INSTALL_DIR=/opt/cubesql/
+
+#remove old installation folder (if exists) and cubesqlctl executable
 rm -Rdf $INSTALL_DIR
+rm /usr/local/bin/cubesqlctl
 
 # create new installation folder
 mkdir -p $INSTALL_DIR
