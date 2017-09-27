@@ -6,6 +6,7 @@ CUBESQL_VERSION=561
 # Configure and enable the linux compat layer!
 kldload linux
 kldload linux64
+mkdir /compat
 sysrc linux_enable="YES"
 echo 'linprocfs /compat/linux/proc linprocfs rw 0 0' >> /etc/fstab
 mount /compat/linux/proc
