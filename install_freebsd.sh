@@ -1,28 +1,22 @@
 #!/bin/sh
 
-INSTALL_DIR=/opt/cubesql/
-CUBESQL_VERSION=561
-
-# Configure and enable the linux compat layer!
-kldload linux
-kldload linux64
-mkdir -p /compat/linux/proc
-mkdir -p /compat/linux/dev/shm
-sysrc linux_enable="YES"
-echo 'linprocfs /compat/linux/proc linprocfs rw 0 0' >> /etc/fstab
-mount /compat/linux/proc
-echo 'tmpfs /compat/linux/dev/shm tmpfs rw,mode=1777 0 0' >> /etc/fstab
-mount /compat/linux/dev/shm
-
 # Update the portstree.
 portsnap fetch extract
 portsnap fetch update
 
 # Build and install the linux-c7 port.
-echo 'DEFAULT_VERSIONS+=linux=c7_64' >> /etc/make.conf
+echo 'DEFAULT_VERSIONS+=linux=c7' >> /etc/make.conf
 make -C /usr/ports/emulators/linux-c7 install clean -DBATCH
+# Configure and enable the linux compat layer!
+sysrc linux_enable="YES"
+echo 'linprocfs /compat/linux/proc linprocfs rw 0 0' >> /etc/fstab
+echo 'tmpfs /compat/linux/dev/shm tmpfs rw,mode=1777 0 0' >> /etc/fstab
+reboot
 
 # Fetch and install cubeSQL.
+sh
+export INSTALL_DIR=/opt/cubesql/
+export CUBESQL_VERSION=561
 cd /tmp/
 fetch http://www.sqlabs.com/download/cubesql/${CUBESQL_VERSION}/cubesql_linux64bit.tgz
 tar xzf cubesql_linux64bit.tgz
