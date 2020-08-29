@@ -12,11 +12,13 @@ This is a temporary section that describes the installation command by command.
 
 ```
 pkg update
-echo 'linux_enable="YES"' >> /etc/rc.conf reboot
+echo 'linux_enable="YES"' >> /etc/rc.conf
+reboot
 
 pkg install linux-c6 bash
 echo 'linprocfs /compat/linux/proc linprocfs rw 0 0' >> /etc/fstab
-echo 'tmpfs /compat/linux/dev/shm tmpfs rw,mode=1777 0 0' >> /etc/fstab reboot
+echo 'tmpfs /compat/linux/dev/shm tmpfs rw,mode=1777 0 0' >> /etc/fstab
+reboot
 
 fetch http://www.sqlabs.com/download/cubesql/561/cubesql_linux32bit.tgz
 tar xzf cubesql_linux32bit.tgz
